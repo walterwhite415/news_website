@@ -1,0 +1,19 @@
+@extends('layout')
+@section('content')
+
+    <h3>
+        Contact
+    </h3>
+    <p>
+        {{$contact['name']}}
+    </p>
+    <p>
+        {{$contact['adress']}}
+    </p>
+    <p>
+        {{$contact['phone']}}
+    </p>
+    <p>
+        {{$contact['email']}}
+    </p>
+@endsection
