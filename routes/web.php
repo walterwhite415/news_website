@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('article/show', [ArticleController::class, 'index']);
 
 Route::get('/', [MainController::class, 'index']);
 Route::get('/galery/{full_image}', [MainController::class, 'show']);
