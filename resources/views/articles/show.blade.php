@@ -1,25 +1,21 @@
 @extends('layout')
 @section('content')
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Title</th>
-            <th scope="col">ShortDesc</th>
-            <th scope="col">Desc</th>
+<div class="card" style="width: 38rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{$article->title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{$article->shortDesc}}</h6>
+        <p class="card-text">{{$article->desc}}</p>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($articles as $article)
-        <tr>
-            <th scope="row">{{$article['datePublic']}}</th>
-            <td>{{$article['title']}}</td>
-            <td>{{$article['shortDesc']}}</td>
-            <td>{{$article['desc']}}</td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="/article/{{$article->id}}/edit" class="btn btn-link">Edit</a>
 
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+            <form action="/article/{{$article->id}}" method="post">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-link">Delete</button>
+            </form>
+
+        </div>
+    </div>
+</div>
 @endsection
